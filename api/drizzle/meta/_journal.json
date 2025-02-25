@@ -8,6 +8,20 @@
       "when": 1740154389412,
       "tag": "0000_sturdy_starhawk",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1740473612082,
+      "tag": "0001_late_warstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1740473707253,
+      "tag": "0002_parched_whirlwind",
+      "breakpoints": true
     }
   ]
 }
