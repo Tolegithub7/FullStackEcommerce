@@ -3,7 +3,6 @@ import { db } from "../../db/index";
 import { productsTable } from "../../db/productsSchema";
 import { eq } from "drizzle-orm";
 import _ from 'lodash';
-import { createProductSchema } from "../../db/productsSchema";
 
 // Product Controller
 export async function listProducts(req: Request, res: Response) {
@@ -34,25 +33,20 @@ export async function getProductsById(req: Request, res: Response) {
 
 export async function createProduct(req: Request, res: Response) {
     try {
-        
-        // const data =_.pick(req.body, ['name', 'price'])
-        // await db.insert(productsTable).values(req.body);\
         const [products] = await db
             .insert(productsTable)
             .values(req.cleanBody)
             .returning();
-        // res.send("createProduct");
         res.status(201).json(products);
     } catch (e) {
         res.status(500).send(e);
     }
-
 }
 
 export async function updateProduct(req: Request, res: Response) {
     try {
         const id = Number(req.params.id);
-        const updatedField = req.body;
+        const updatedField = req.cleanBody;
         const [product] = await db
             .update(productsTable)
             .set(updatedField)
