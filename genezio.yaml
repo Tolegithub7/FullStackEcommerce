@@ -1,0 +1,24 @@
+name: FullStackEcommerce
+region: us-east-1
+yamlVersion: 2
+services:
+    databases:
+        - name: my-postgres-db
+          type: postgres-neon
+backend:
+    path: api
+    language:
+        name: js
+        runtime: nodejs20.x
+    functions:
+        - name: express
+          path: .
+          entry: dist/src/index.js
+          type: httpServer
+    scripts:
+        deploy:
+            - npm install
+            - npm run build
+        local:
+            - npm install
+            - npm run build

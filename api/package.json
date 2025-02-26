@@ -24,6 +24,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "pg": "^8.13.3",
+    "serverless-http": "^3.2.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
