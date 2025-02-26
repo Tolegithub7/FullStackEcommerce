@@ -5,10 +5,10 @@ import {
     createProduct,
     updateProduct,
     deleteProduct,
-} from "./productsController";
-import { validateData } from "../..//middlewares/validationMiddleware";
-import { createProductSchema, updateProductSchema } from "../../db/productsSchema";
-import { verifySeller, verifyToken } from "../../middlewares/authMiddleware";
+} from "./productsController.js";
+import { validateData } from "../../middlewares/validationMiddleware.js";
+import { createProductSchema, updateProductSchema } from "../../db/productsSchema.js";
+import { verifySeller, verifyToken } from "../../middlewares/authMiddleware.js";
 
 const router = Router();
 //Product routes

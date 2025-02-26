@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { db } from "../../db/index";
-import { productsTable } from "../../db/productsSchema";
+import { db } from "../../db/index.js";
+import { productsTable } from "../../db/productsSchema.js";
 import { eq } from "drizzle-orm";
 import _ from 'lodash';
 
@@ -33,6 +33,7 @@ export async function getProductsById(req: Request, res: Response) {
 
 export async function createProduct(req: Request, res: Response) {
     try {
+        // console.log(req.userId); // from verfyToken
         const [products] = await db
             .insert(productsTable)
             .values(req.cleanBody)
