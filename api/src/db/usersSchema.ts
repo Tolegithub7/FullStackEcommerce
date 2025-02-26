@@ -16,3 +16,7 @@ export const createUserSchema = createInsertSchema(usersTable).omit({
     // id: true,
     role: true
 });
+export const loginSchema = createInsertSchema(usersTable).pick({
+    email: true,
+    password: true
+})
