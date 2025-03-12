@@ -1,6 +1,5 @@
 import { integer, pgTable, varchar, text, doublePrecision } from "drizzle-orm/pg-core";
 import { createInsertSchema, createUpdateSchema } from "drizzle-zod";
-import { z } from "zod";
 
 export const productsTable = pgTable("products", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -11,7 +10,6 @@ export const productsTable = pgTable("products", {
 });
 
 export const createProductSchema = createInsertSchema(productsTable).omit({
-    price: true,
 });
 export const updateProductSchema = createUpdateSchema(productsTable).omit({
 }).partial();

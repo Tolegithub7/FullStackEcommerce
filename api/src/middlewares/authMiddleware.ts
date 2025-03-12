@@ -4,12 +4,13 @@ import jwt from 'jsonwebtoken';
 export function verifyToken(req: Request, res: Response, next: NextFunction) {
     const token = req.headers.authorization;
     if (!token) {
-        res.status(401).json({ message: 'Access denied' });
+        res.status(401).json({ message: 'Access denied on verifying' });
         return;
     }
     try {
         // decode jwt token
         const decoded = jwt.verify(token, 'my-secret-in-secret');
+        // console.log(decoded);
         if (typeof decoded !== 'object' || !decoded?.userId) {
             res.status(401).json({ message: 'Invalid token' });
             return;
