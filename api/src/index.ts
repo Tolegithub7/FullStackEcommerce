@@ -10,20 +10,26 @@ app.use(urlencoded({extended: false}));
 app.use(json());
 
 app.get("/", (req, res) => {
-    res.send("Hello, backend!");
+    res.send("Hello, backend!!!");
+})
+app.get("/api/health", (req, res) => {
+    res.send("Backend healthy");
+});
+app.get("/test", (req, res) => {
+    res.send("Hello, test!!!");
 })
 app.use("/products", productsRoutes);
 app.use("/auth", authRoutes);
 
-if (process.env.NODE_ENV === "dev") {
-    app.listen(port, () => {
-        console.log("Server is running on port", port);
-    })
-}
+// if (process.env.NODE_ENV === "dev") {
+//     app.listen(port, () => {
+//         console.log("Server is running on port", port);
+//     })
+// }
 
-app.listen(port, () => {
-    console.log("Server is running on port", port);
-})
+// app.listen(port, () => {
+//     console.log("Server is running on port", port);
+// })
 
 export const handler = serverless(app);
 

@@ -14,7 +14,7 @@ const router = Router();
 //Product routes
 router.get("/", listProducts);
 router.get("/:id", getProductsById);
-router.post("/" , verifyToken, verifySeller, validateData(createProductSchema) , createProduct);
+router.post("/" , verifyToken, validateData(createProductSchema) , createProduct);
 router.put("/:id", verifyToken, verifySeller, validateData(updateProductSchema), updateProduct);
 router.delete("/:id",verifyToken, verifySeller,  deleteProduct);
 

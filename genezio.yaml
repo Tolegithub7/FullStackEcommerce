@@ -15,8 +15,9 @@ backend:
         - name: ecommerce-express-api-function
           path: ./
           handler: handler
-          entry: dist/index.js
+          entry: dist/src/index.js
           type: httpServer
+          subpath: "/"
     scripts:
         deploy:
             - npm install
